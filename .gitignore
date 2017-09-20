@@ -6,9 +6,12 @@
 
 *.pyc
 
-config/prod.cfg
-config/client_secrets.json
-config/auth_token.json
+#config/prod.cfg
+#config/client_secrets.json
+#config/auth_token.json
+config/dev.cfg
+dev/
+config/prod_example.cfg
 config/session.onedrive.pickle
 config/lastNewsletterUrl
 
