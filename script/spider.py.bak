@@ -4,14 +4,14 @@ import argparse
 import datetime
 import requests
 import os
-from .utils import ip_address, config_file
-from .packtpub import Packtpub
-from .upload import Upload, SERVICE_GOOGLE_DRIVE, SERVICE_ONEDRIVE, SERVICE_DROPBOX, SERVICE_SCP
-from .database import Database, DB_FIREBASE
-from .logs import *
-from .notify import Notify, SERVICE_GMAIL, SERVICE_IFTTT, SERVICE_JOIN, SERVICE_PUSHOVER
-from .noBookException import NoBookException
-from .alreadyClaimedException import AlreadyClaimedException
+from utils import ip_address, config_file
+from packtpub import Packtpub
+from upload import Upload, SERVICE_GOOGLE_DRIVE, SERVICE_ONEDRIVE, SERVICE_DROPBOX, SERVICE_SCP
+from database import Database, DB_FIREBASE
+from logs import *
+from notify import Notify, SERVICE_GMAIL, SERVICE_IFTTT, SERVICE_JOIN, SERVICE_PUSHOVER
+from noBookException import NoBookException
+from alreadyClaimedException import AlreadyClaimedException
 
 def parse_types(args):
     if args.types is None:

@@ -1,8 +1,8 @@
-from .notification.gmail import Gmail
-from .notification.ifttt import Ifttt
-from .logs import *
-from .notification.join import Join
-from .notification.mypushover import Pushover
+from notification.gmail import Gmail
+from notification.ifttt import Ifttt
+from logs import *
+from notification.join import Join
+from notification.mypushover import Pushover
 
 SERVICE_GMAIL = 'gmail'
 SERVICE_IFTTT = 'ifttt'

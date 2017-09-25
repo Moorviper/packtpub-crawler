@@ -1,11 +1,11 @@
 import requests
-import configparser
+import ConfigParser
 from bs4 import BeautifulSoup
 from time import sleep
 from clint.textui import progress
 import os, sys, itertools
 from threading import Thread
-from .logs import *
+from logs import *
 
 def ip_address():
     """
@@ -13,7 +13,7 @@ def ip_address():
     """
 
     response = requests.get('http://www.ip-addr.es')
-    print('[-] GET {0} | {1}'.format(response.status_code, response.url))
+    print '[-] GET {0} | {1}'.format(response.status_code, response.url)
     log_info('[+] ip address is: {0}'.format(response.text.strip()))
 
 def config_file(path):
@@ -24,7 +24,7 @@ def config_file(path):
         raise IOError('file not found!')
 
     log_info('[*] configuration file: {0}'.format(path))
-    config = configparser.ConfigParser()
+    config = ConfigParser.ConfigParser()
     config.read(path)
     return config
 
@@ -33,16 +33,16 @@ def make_soup(response, debug=False):
     Makes soup from response
     """
 
-    print('[*] fetching url... {0} | {1}'.format(response.status_code, response.url))
+    print '[*] fetching url... {0} | {1}'.format(response.status_code, response.url)
     soup = BeautifulSoup(response.text, 'html5lib')
     if debug:
-        print(soup.prettify().encode('utf-8'))
+        print soup.prettify().encode('utf-8')
     return soup
 
 def wait(delay, isDev):
     if delay > 0:
         if isDev:
-            print('[-] going to sleep {0} seconds'.format(delay))
+            print '[-] going to sleep {0} seconds'.format(delay)
         sleep(delay)
 
 def download_file(r, url, directory, filename, headers):
@@ -57,7 +57,7 @@ def download_file(r, url, directory, filename, headers):
     filename = filename.replace(':', '-')
     path = os.path.join(directory, filename)
 
-    print('[-] downloading file from url: {0}'.format(url))
+    print '[-] downloading file from url: {0}'.format(url)
     response = r.get(url, headers=headers, stream=True)
     #log_dict(response.headers)
     total_length = 0
@@ -82,7 +82,7 @@ def thread_loader(function):
     thread.start()
     spinner = itertools.cycle(['-', '/', '|', '\\'])
     while thread.is_alive():
-        sys.stdout.write(next(spinner))
+        sys.stdout.write(spinner.next())
         sys.stdout.flush()
         # erase the last written char
         sys.stdout.write('\b')

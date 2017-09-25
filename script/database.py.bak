@@ -1,4 +1,4 @@
-from .logs import *
+from logs import *
 from firebase.firebase import FirebaseApplication, FirebaseAuthentication
 import datetime
 

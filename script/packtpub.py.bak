@@ -1,10 +1,10 @@
 import requests
 import re
 from os.path import split, join
-from .utils import make_soup, wait, download_file
-from .logs import *
-from .noBookException import NoBookException
-from .alreadyClaimedException import AlreadyClaimedException
+from utils import make_soup, wait, download_file
+from logs import *
+from noBookException import NoBookException
+from alreadyClaimedException import AlreadyClaimedException
 
 class Packtpub(object):
     """
@@ -35,10 +35,10 @@ class Packtpub(object):
 
     def __log_response(self, response, method='GET', detail=False):
         if detail:
-            print('[-] {0} {1} | {2}'.format(method, response.url, response.status_code))
-            print('[-] cookies:')
+            print '[-] {0} {1} | {2}'.format(method, response.url, response.status_code)
+            print '[-] cookies:'
             log_dict(requests.utils.dict_from_cookiejar(self.__session.cookies))
-            print('[-] headers:')
+            print '[-] headers:'
             log_dict(response.headers)
 
     def __GET_login(self, url):
