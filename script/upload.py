@@ -1,7 +1,7 @@
-from .googledrive import GoogleDrive
-from .onedrive import OneDrive
-from .scpUpload import ScpUpload
-from .logs import *
+from script.googledrive import GoogleDrive
+from script.onedrive import OneDrive
+from script.scpUpload import ScpUpload
+from script.logs import *
 
 SERVICE_GOOGLE_DRIVE = 'googledrive'
 SERVICE_ONEDRIVE = 'onedrive'

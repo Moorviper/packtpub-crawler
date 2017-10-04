@@ -1,7 +1,7 @@
 from os.path import exists
 import magic
-from .utils import thread_loader
-from .logs import *
+from script.utils import thread_loader
+from script.logs import *
 import paramiko
 from scp import SCPClient
 

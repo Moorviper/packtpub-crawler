@@ -1,10 +1,10 @@
 import requests
 import re
 from os.path import split, join
-from .utils import make_soup, wait, download_file
-from .logs import *
-from .noBookException import NoBookException
-from .alreadyClaimedException import AlreadyClaimedException
+from script.utils import make_soup, wait, download_file
+from script.logs import *
+from script.noBookException import NoBookException
+from script.alreadyClaimedException import AlreadyClaimedException
 
 class Packtpub(object):
     """

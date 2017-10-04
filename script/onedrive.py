@@ -4,8 +4,8 @@ import magic
 import onedrivesdk
 from onedrivesdk.helpers import GetAuthCodeServer
 
-from .logs import *
-from .utils import thread_loader
+from script.logs import *
+from script.utils import thread_loader
 
 
 class OneDrive(object):

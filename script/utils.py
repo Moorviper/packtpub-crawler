@@ -5,7 +5,7 @@ from time import sleep
 from clint.textui import progress
 import os, sys, itertools
 from threading import Thread
-from .logs import *
+from script.logs import *
 
 def ip_address():
     """

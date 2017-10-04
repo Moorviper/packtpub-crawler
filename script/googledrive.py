@@ -6,8 +6,8 @@ import httplib2
 import magic
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-from .utils import thread_loader
-from .logs import *
+from script.utils import thread_loader
+from script.logs import *
 
 class GoogleDrive(object):
     """
