@@ -1,5 +1,5 @@
 import requests
-import configparser
+import ConfigParser
 from bs4 import BeautifulSoup
 from time import sleep
 from clint.textui import progress
@@ -24,7 +24,7 @@ def config_file(path):
         raise IOError('file not found!')
 
     log_info('[*] configuration file: {0}'.format(path))
-    config = configparser.ConfigParser()
+    config = ConfigParser.ConfigParser()
     config.read(path)
     return config
 
