@@ -28,13 +28,13 @@ def config_file(path):
     config.read(path)
     return config
 
-def make_soup(response, debug=False):
+def make_soup(response, parser='html5lib', debug=False):
     """
     Makes soup from response
     """
 
     print('[*] fetching url... {0} | {1}'.format(response.status_code, response.url))
-    soup = BeautifulSoup(response.text, 'html5lib')
+    soup = BeautifulSoup(response.text, parser)
     if debug:
         print(soup.prettify().encode('utf-8'))
     return soup
