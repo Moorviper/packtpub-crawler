@@ -4,7 +4,7 @@ import shutil
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', day_of_week='mon-sun', hour=8)
+@sched.scheduled_job('cron', day_of_week='mon-sun', hour=9, min=5)
 def scheduled_job():
     print('New job: packtpub-crawler')
     shutil.rmtree('./ebooks', ignore_errors=True)
