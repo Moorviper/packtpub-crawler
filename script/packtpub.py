@@ -106,16 +106,22 @@ class Packtpub(object):
         # remove useless info
         self.info.pop('form_build_id', None)
         self.info.pop('form_id', None)
-        if 'href' not in div_target.find(attrs={'class': 'twelve-days-claim'}):
+
+        # Testing
+        url = self.__url_base + self.__config.get('url', 'url.login')
+        response = self.__session.get(url, headers=self.__headers)
+        html = make_soup(response, parser='html.parser')
+
+        if 'href' not in html.find(attrs={'class': 'twelve-days-claim'}):
             # Detect captcha
             key_pattern = re.compile(
                 "Packt.offers.onLoadRecaptcha\(\'(.+?)\'\)")
             website_key = key_pattern.search(
-                div_target.find(text=key_pattern)).group(1)
+                html.find(text=key_pattern)).group(1)
             anticaptcha = Anticaptcha(self.__config.get('anticaptcha', 'key'))
             captcha_solved_id = anticaptcha.solve_recaptcha(self.__url_base + self.__config.get('url', 'url.login'),
                                                             website_key)
-            claim_url = div_target.select_one('.free-ebook form')['action']
+            claim_url = html.select_one('.free-ebook form')['action']
             self.info['captcha_solved_id'] = captcha_solved_id
         else:
             claim_url = div_target.select('a.twelve-days-claim')[0]['href']
