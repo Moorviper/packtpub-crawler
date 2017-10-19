@@ -114,4 +114,4 @@ class Gmail(object):
         server.sendmail(message['From'], receivers, message.as_string())
         server.quit()
 
-        log_success('[+] error notifikation sent to: {0}'.format(receivers))
+        log_success('[+] error notification sent to: {0}'.format(receivers))
